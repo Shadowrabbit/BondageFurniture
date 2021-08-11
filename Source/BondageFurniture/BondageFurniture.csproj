@@ -7,7 +7,7 @@
         <ProjectGuid>{26C43AED-658A-4B26-80BA-B5BC660FC325}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>BondageFurniture</RootNamespace>
+        <RootNamespace>RabiSquare.BondageFurniture</RootNamespace>
         <AssemblyName>BondageFurniture</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
@@ -17,7 +17,7 @@
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <Optimize>false</Optimize>
-        <OutputPath>bin\Debug\</OutputPath>
+        <OutputPath>..\..\Assemblies</OutputPath>
         <DefineConstants>DEBUG;TRACE</DefineConstants>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
@@ -26,7 +26,7 @@
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DebugType>pdbonly</DebugType>
         <Optimize>true</Optimize>
-        <OutputPath>bin\Release\</OutputPath>
+        <OutputPath>..\..\Assemblies</OutputPath>
         <DefineConstants>TRACE</DefineConstants>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
@@ -50,6 +50,17 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Comp\CompBondage.cs" />
+        <Compile Include="Comp\CompDataGraphicLayer.cs" />
+        <Compile Include="Comp\CompEffectBondage.cs" />
+        <Compile Include="Comp\CompLayerExtension.cs" />
+        <Compile Include="Comp\CompPropertiesBondage.cs" />
+        <Compile Include="Comp\CompPropertiesLayerExtension.cs" />
+        <Compile Include="Comp\CompUsableBondage.cs" />
+        <Compile Include="Extension\PawnExtension.cs" />
+        <Compile Include="Job\JobDriverUseBondageArrest.cs" />
+        <Compile Include="Job\JobDriverUseBondageRelease.cs" />
+        <Compile Include="Msic\MsicDef.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
