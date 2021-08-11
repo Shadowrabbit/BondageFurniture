@@ -53,7 +53,6 @@ namespace RabiSquare.BondageFurniture
             //release
             if (bondager != null && selPawn.CanReserve(bondager))
             {
-                //todo release
                 yield return new FloatMenuOption("SrBondageRelease".Translate(bondager.Label), ReleaseBondager);
                 yield break;
             }
@@ -72,9 +71,12 @@ namespace RabiSquare.BondageFurniture
             {
                 yield return new FloatMenuOption(
                     $"{FloatMenuOptionLabelCantArrest()}({"SrBondageArrest".Translate(selPawn, prisoner)})",
-                    ArrestBondager);
+                    () => { ArrestBondager(selPawn, prisoner); });
             }
         }
+
+        public IntVec3 BondagePos =>
+            BedUtility.GetSleepingSlotPos(0, parent.Position, parent.Rotation, parent.def.size);
 
         private static string FloatMenuOptionLabelCantArrest()
         {
@@ -93,8 +95,7 @@ namespace RabiSquare.BondageFurniture
                 return null;
             }
 
-            var bondagePos = BedUtility.GetSleepingSlotPos(1, parent.Position, parent.Rotation, parent.def.size);
-            var thingList = parent?.Map.thingGrid.ThingsListAt(bondagePos);
+            var thingList = parent?.Map.thingGrid.ThingsListAt(BondagePos);
             foreach (var thing in thingList)
             {
                 if (thing is Pawn p)
@@ -111,9 +112,24 @@ namespace RabiSquare.BondageFurniture
             Log.Warning("111");
         }
 
-        private static void ArrestBondager()
+        private void ArrestBondager(Pawn selPawn, LocalTargetInfo target)
         {
-            Log.Warning("222");
+            //building
+            if (!selPawn.CanReserveAndReach(parent, PathEndMode.Touch, Danger.Some))
+            {
+                return;
+            }
+
+            //prisoner
+            if (!selPawn.CanReserveAndReach(target, PathEndMode.Touch, Danger.Some))
+            {
+                return;
+            }
+
+            //分配job
+            var job = JobMaker.MakeJob(JobDefOf.SrJobBondageArrest, parent, target);
+            job.count = 1;
+            selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }
     }
 }

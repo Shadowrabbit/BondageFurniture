@@ -9,14 +9,13 @@
 
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using RimWorld;
 using Verse;
 using Verse.AI;
 
 namespace RabiSquare.BondageFurniture
 {
     [UsedImplicitly]
-    public class JobDriverUseBondageArrest : JobDriver_UseItem
+    public class JobDriverUseBondageArrest : JobDriver
     {
         private Thing Thing => job.GetTarget(TargetIndex.A).Thing; //building
         private Thing Target => job.GetTarget(TargetIndex.B).Thing; //target
@@ -62,6 +61,8 @@ namespace RabiSquare.BondageFurniture
 
                     pawn.carryTracker.TryDropCarriedThing(Thing.Position, ThingPlaceMode.Direct,
                         out _); //把囚犯扔下去
+                    //TuckedIntoBed
+                    prisoner.NotifyTuckedIntoBondageFurture(Thing);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };

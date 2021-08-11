@@ -53,11 +53,10 @@
         <Compile Include="AI\ThinkNodeConditionalBound.cs" />
         <Compile Include="Comp\CompBondage.cs" />
         <Compile Include="Comp\CompDataGraphicLayer.cs" />
-        <Compile Include="Comp\CompEffectBondage.cs" />
         <Compile Include="Comp\CompLayerExtension.cs" />
         <Compile Include="Comp\CompPropertiesBondage.cs" />
         <Compile Include="Comp\CompPropertiesLayerExtension.cs" />
-        <Compile Include="Comp\CompUsableBondage.cs" />
+        <Compile Include="DefOf\JobDefOf.cs" />
         <Compile Include="Extension\PawnExtension.cs" />
         <Compile Include="Job\JobDriverUseBondageArrest.cs" />
         <Compile Include="Job\JobDriverUseBondageRelease.cs" />

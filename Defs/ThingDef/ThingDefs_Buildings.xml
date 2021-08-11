@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- 束缚床 -->
+    <ThingDef ParentName="BuildingBase">
+        <defName>SrBondageBed</defName>
+        <label>bondage bed</label>
+        <description>Bound prisoners on it to make sure that they can't make trouble for you.</description>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <canOverlapZones>false</canOverlapZones>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
+        <passability>PassThroughOnly</passability>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <graphicData>
+            <texPath>Things/Building/Furniture/BondageBed</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(4,4)</drawSize>
+            <color>(62,164,249)</color>
+            <damageData>
+                <rect>(0,0.05,1,1.95)</rect>
+            </damageData>
+        </graphicData>
+        <comps>
+            <li Class="RabiSquare.BondageFurniture.CompPropertiesBondage"/>
+            <!-- layer扩展 graphic与layer对应 -->
+            <li Class="RabiSquare.BondageFurniture.CompPropertiesLayerExtension">
+                <compClass>RabiSquare.BondageFurniture.CompLayerExtension</compClass>
+                <graphicLayers>
+                    <li>
+                        <graphicData>
+                            <texPath>Things/Building/Furniture/BondageBedLayerA</texPath>
+                            <graphicClass>Graphic_Multi</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <drawSize>(4,4)</drawSize>
+                        </graphicData>
+                        <altitudeLayer>Pawn</altitudeLayer>
+                    </li>
+                </graphicLayers>
+            </li>
+        </comps>
+        <statBases>
+            <MaxHitPoints>140</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Beauty>1</Beauty>
+            <WorkToBuild>800</WorkToBuild>
+            <Mass>30</Mass>
+            <BedRestEffectiveness>1</BedRestEffectiveness>
+            <Comfort>0.75</Comfort>
+            <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+            <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+        </statBases>
+        <size>(1,2)</size>
+        <!-- 混合材料 -->
+        <stuffCategories>
+            <li>Metallic</li>
+            <li>Woody</li>
+            <li>Stony</li>
+        </stuffCategories>
+        <costStuffCount>45</costStuffCount>
+        <!-- 额外固定消耗 -->
+        <costList>
+            <Cloth>20</Cloth>
+        </costList>
+        <building>
+            <bed_showSleeperBody>true</bed_showSleeperBody>
+            <bed_healPerDay>4</bed_healPerDay>
+        </building>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>60</pathCost>
+        <staticSunShadowHeight>0.17</staticSunShadowHeight>
+        <castEdgeShadows>True</castEdgeShadows>
+        <designationHotKey>Misc2</designationHotKey>
+        <techLevel>Medieval</techLevel>
+        <!--        <researchPrerequisites>-->
+        <!--            <li>SR_RP_BondageBed</li>-->
+        <!--        </researchPrerequisites>-->
+        <uiIconScale>0.90</uiIconScale>
+    </ThingDef>
+</Defs>

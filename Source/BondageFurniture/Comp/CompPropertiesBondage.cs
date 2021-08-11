@@ -7,11 +7,17 @@
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
+using JetBrains.Annotations;
 using Verse;
 
 namespace RabiSquare.BondageFurniture
 {
+    [UsedImplicitly]
     public class CompPropertiesBondage : CompProperties
     {
+        public CompPropertiesBondage()
+        {
+            compClass = typeof(CompBondage);
+        }
     }
 }
