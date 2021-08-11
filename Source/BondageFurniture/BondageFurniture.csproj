@@ -50,6 +50,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="AI\ThinkNodeConditionalBound.cs" />
         <Compile Include="Comp\CompBondage.cs" />
         <Compile Include="Comp\CompDataGraphicLayer.cs" />
         <Compile Include="Comp\CompEffectBondage.cs" />
