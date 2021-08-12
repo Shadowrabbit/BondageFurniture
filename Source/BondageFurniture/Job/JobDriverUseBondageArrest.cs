@@ -62,7 +62,7 @@ namespace RabiSquare.BondageFurniture
                     pawn.carryTracker.TryDropCarriedThing(Thing.Position, ThingPlaceMode.Direct,
                         out _); //把囚犯扔下去
                     //TuckedIntoBed
-                    prisoner.NotifyTuckedIntoBondageFurture(Thing);
+                    prisoner.NotifyTuckedIntoBondageFurniture(Thing);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };

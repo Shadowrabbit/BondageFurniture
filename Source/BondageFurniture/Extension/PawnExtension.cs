@@ -26,7 +26,7 @@ namespace RabiSquare.BondageFurniture
             return thingList.Select(thing => thing.TryGetComp<CompBondage>()).Any(compBondage => compBondage != null);
         }
 
-        public static void NotifyTuckedIntoBondageFurture(this Pawn pawn, Thing thing)
+        public static void NotifyTuckedIntoBondageFurniture(this Pawn pawn, Thing thing)
         {
             var compBondage = thing.TryGetComp<CompBondage>();
             if (compBondage == null)
@@ -34,12 +34,10 @@ namespace RabiSquare.BondageFurniture
                 return;
             }
 
-            Log.Warning($"pawn.Position:{pawn.Position}");
-            Log.Warning($"pawn.BondagePos:{compBondage.BondagePos}");
             pawn.Position = compBondage.BondagePos;
             pawn.Notify_Teleported(false);
             pawn.stances.CancelBusyStanceHard();
-            var job = JobMaker.MakeJob(RimWorld.JobDefOf.LayDown);
+            var job = JobMaker.MakeJob(JobDefOf.SrJobLayDownBondage, thing);
             pawn.jobs.StartJob(job, JobCondition.InterruptForced);
         }
     }

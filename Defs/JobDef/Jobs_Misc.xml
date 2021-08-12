@@ -5,4 +5,9 @@
         <driverClass>RabiSquare.BondageFurniture.JobDriverUseBondageArrest</driverClass>
         <reportString>arrest</reportString>
     </JobDef>
+    <JobDef>
+        <defName>SrJobLayDownBondage</defName>
+        <driverClass>RabiSquare.BondageFurniture.JobDriverLayDownBondage</driverClass>
+        <reportString>bound</reportString>
+    </JobDef>
 </Defs>

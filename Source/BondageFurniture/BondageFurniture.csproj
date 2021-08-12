@@ -58,8 +58,10 @@
         <Compile Include="Comp\CompPropertiesLayerExtension.cs" />
         <Compile Include="DefOf\JobDefOf.cs" />
         <Compile Include="Extension\PawnExtension.cs" />
+        <Compile Include="Job\JobDriverLayDownBondage.cs" />
         <Compile Include="Job\JobDriverUseBondageArrest.cs" />
         <Compile Include="Job\JobDriverUseBondageRelease.cs" />
+        <Compile Include="Job\ToilsBondage.cs" />
         <Compile Include="Msic\MsicDef.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
