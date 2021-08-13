@@ -50,7 +50,10 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="AI\JobGiverBondageLayDown.cs" />
+        <Compile Include="AI\JobGiverBondageStand.cs" />
         <Compile Include="AI\ThinkNodeConditionalBound.cs" />
+        <Compile Include="Comp\BondageType.cs" />
         <Compile Include="Comp\CompBondage.cs" />
         <Compile Include="Comp\CompDataGraphicLayer.cs" />
         <Compile Include="Comp\CompLayerExtension.cs" />
@@ -58,7 +61,8 @@
         <Compile Include="Comp\CompPropertiesLayerExtension.cs" />
         <Compile Include="DefOf\JobDefOf.cs" />
         <Compile Include="Extension\PawnExtension.cs" />
-        <Compile Include="Job\JobDriverLayDownBondage.cs" />
+        <Compile Include="Job\JobDriverBondageLayDown.cs" />
+        <Compile Include="Job\JobDriverBondageStand.cs" />
         <Compile Include="Job\JobDriverUseBondageArrest.cs" />
         <Compile Include="Job\JobDriverUseBondageRelease.cs" />
         <Compile Include="Job\ToilsBondage.cs" />

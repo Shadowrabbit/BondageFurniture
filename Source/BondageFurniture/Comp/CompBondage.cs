@@ -9,16 +9,16 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using RimWorld;
 using Verse;
 using Verse.AI;
 
 namespace RabiSquare.BondageFurniture
 {
-    [UsedImplicitly]
     public class CompBondage : ThingComp
     {
+        public CompPropertiesBondage Props => (CompPropertiesBondage) props;
+
         public override IEnumerable<FloatMenuOption> CompFloatMenuOptions(Pawn selPawn)
         {
             if (!selPawn.CanReach((LocalTargetInfo) parent, PathEndMode.Touch, Danger.Deadly))
@@ -53,7 +53,8 @@ namespace RabiSquare.BondageFurniture
             //release
             if (bondager != null && selPawn.CanReserve(bondager))
             {
-                yield return new FloatMenuOption("SrBondageRelease".Translate(bondager.Label), ReleaseBondager);
+                yield return new FloatMenuOption(MsicDef.SrBondageRelease.Translate(bondager.Label),
+                    () => { ReleaseBondager(selPawn, bondager); });
                 yield break;
             }
 
@@ -61,7 +62,7 @@ namespace RabiSquare.BondageFurniture
             if (prisonerList.Count <= 0)
             {
                 yield return new FloatMenuOption(
-                    $"{FloatMenuOptionLabelCantArrest()}({"SrBondageNoPrisoner".Translate()})", null,
+                    $"{FloatMenuOptionLabelCantArrest()}({MsicDef.SrBondageNoPrisoner.Translate()})", null,
                     MenuOptionPriority.DisabledOption);
                 yield break;
             }
@@ -70,7 +71,7 @@ namespace RabiSquare.BondageFurniture
             foreach (var prisoner in prisonerList.Where(prisoner => selPawn.CanReserve(prisoner)))
             {
                 yield return new FloatMenuOption(
-                    $"{FloatMenuOptionLabelCantArrest()}({"SrBondageArrest".Translate(selPawn, prisoner)})",
+                    $"{FloatMenuOptionLabelCantArrest()}({MsicDef.SrBondageArrest.Translate(prisoner)})",
                     () => { ArrestBondager(selPawn, prisoner); });
             }
         }
@@ -80,7 +81,7 @@ namespace RabiSquare.BondageFurniture
 
         private static string FloatMenuOptionLabelCantArrest()
         {
-            return "SrBondageCantArrest".Translate();
+            return MsicDef.SrBondageCantArrest.Translate();
         }
 
         private Pawn GetBondager()
@@ -107,9 +108,23 @@ namespace RabiSquare.BondageFurniture
             return null;
         }
 
-        private static void ReleaseBondager()
+        private void ReleaseBondager(Pawn selPawn, LocalTargetInfo target)
         {
-            Log.Warning("111");
+            if (!selPawn.CanReserveAndReach(parent, PathEndMode.Touch, Danger.Some))
+            {
+                return;
+            }
+
+            //prisoner
+            if (!selPawn.CanReserveAndReach(target, PathEndMode.Touch, Danger.Some))
+            {
+                return;
+            }
+
+            //分配job
+            var job = JobMaker.MakeJob(JobDefOf.SrJobBondageRelease, parent, target);
+            job.count = 1;
+            selPawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
         }
 
         private void ArrestBondager(Pawn selPawn, LocalTargetInfo target)

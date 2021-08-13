@@ -6,8 +6,18 @@
         <reportString>arrest</reportString>
     </JobDef>
     <JobDef>
-        <defName>SrJobLayDownBondage</defName>
-        <driverClass>RabiSquare.BondageFurniture.JobDriverLayDownBondage</driverClass>
+        <defName>SrJobBondageRelease</defName>
+        <driverClass>RabiSquare.BondageFurniture.JobDriverUseBondageRelease</driverClass>
+        <reportString>release</reportString>
+    </JobDef>
+    <JobDef>
+        <defName>SrJobBondageLayDown</defName>
+        <driverClass>RabiSquare.BondageFurniture.JobDriverBondageLayDown</driverClass>
+        <reportString>bound</reportString>
+    </JobDef>
+    <JobDef>
+        <defName>SrJobBondageStand</defName>
+        <driverClass>RabiSquare.BondageFurniture.JobDriverBondageStand</driverClass>
         <reportString>bound</reportString>
     </JobDef>
 </Defs>

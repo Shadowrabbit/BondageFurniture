@@ -9,7 +9,6 @@
 
 using System.Linq;
 using Verse;
-using Verse.AI;
 
 namespace RabiSquare.BondageFurniture
 {
@@ -26,19 +25,18 @@ namespace RabiSquare.BondageFurniture
             return thingList.Select(thing => thing.TryGetComp<CompBondage>()).Any(compBondage => compBondage != null);
         }
 
-        public static void NotifyTuckedIntoBondageFurniture(this Pawn pawn, Thing thing)
+        public static Thing GetBondageThing(this Pawn pawn)
         {
-            var compBondage = thing.TryGetComp<CompBondage>();
-            if (compBondage == null)
+            var thingList = pawn?.Map.thingGrid.ThingsListAt(pawn.Position);
+            if (thingList == null || thingList.Count == 0)
             {
-                return;
+                return null;
             }
 
-            pawn.Position = compBondage.BondagePos;
-            pawn.Notify_Teleported(false);
-            pawn.stances.CancelBusyStanceHard();
-            var job = JobMaker.MakeJob(JobDefOf.SrJobLayDownBondage, thing);
-            pawn.jobs.StartJob(job, JobCondition.InterruptForced);
+            return (from thing in thingList
+                let compBondage = thing.TryGetComp<CompBondage>()
+                where compBondage != null
+                select thing).FirstOrDefault();
         }
     }
 }

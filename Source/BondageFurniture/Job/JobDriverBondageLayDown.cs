@@ -1,5 +1,5 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       JobDriverLayDownBondage.cs
+//       /\ /|       @file       JobDriverBondageLayDown.cs
 //       \ V/        @brief      
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
@@ -9,7 +9,6 @@
 
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.AI;
@@ -17,13 +16,13 @@ using Verse.AI;
 namespace RabiSquare.BondageFurniture
 {
     [UsedImplicitly]
-    public class JobDriverLayDownBondage : JobDriver_LayDown
+    public class JobDriverBondageLayDown : JobDriver
     {
-        public override bool LookForOtherJobs => false;
+        public override bool TryMakePreToilReservations(bool errorOnFailed) => true;
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return LayDownToil(false);
+            yield return ToilsBondage.GetToilLayDownBondage(TargetIndex.A, false);
         }
 
         public override Vector3 ForcedBodyOffset
@@ -31,15 +30,14 @@ namespace RabiSquare.BondageFurniture
             get
             {
                 var thing = job.GetTarget(TargetIndex.A).Thing;
-                return thing != null && thing.def.Size.z > 1
-                    ? new Vector3(0.0f, 0.0f, 0.5f).RotatedBy(thing.Rotation)
-                    : base.ForcedBodyOffset;
-            }
-        }
+                if (thing == null)
+                {
+                    return base.ForcedBodyOffset;
+                }
 
-        public override Toil LayDownToil(bool hasBed)
-        {
-            return ToilsBondage.GetToilLayDownBondage(TargetIndex.A, LookForOtherJobs, CanSleep, CanRest);
+                var compBondage = thing.TryGetComp<CompBondage>();
+                return compBondage?.Props.forcedBodyOffset.RotatedBy(thing.Rotation) ?? base.ForcedBodyOffset;
+            }
         }
     }
 }

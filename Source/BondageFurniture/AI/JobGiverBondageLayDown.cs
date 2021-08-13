@@ -1,9 +1,9 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       ThinkNodeConditionalBound.cs
+//       /\ /|       @file       JobGiverBondageLayDown.cs
 //       \ V/        @brief      
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
-//      /  \\        @Modified   2021-08-11 07:55:41
+//      /  \\        @Modified   2021-08-13 03:47:48
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
@@ -14,11 +14,18 @@ using Verse.AI;
 namespace RabiSquare.BondageFurniture
 {
     [UsedImplicitly]
-    public class ThinkNodeConditionalBound : ThinkNode_Conditional
+    public class JobGiverBondageLayDown : ThinkNode_JobGiver
     {
-        protected override bool Satisfied(Pawn pawn)
+        protected override Job TryGiveJob(Pawn pawn)
         {
-            return pawn.IsBound();
+            var bondageThing = pawn.GetBondageThing();
+            if (bondageThing == null)
+            {
+                return null;
+            }
+
+            var job = JobMaker.MakeJob(JobDefOf.SrJobBondageLayDown);
+            return job;
         }
     }
 }

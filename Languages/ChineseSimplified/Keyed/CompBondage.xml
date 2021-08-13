@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <SrBondageArrest>抓捕{0}</SrBondageArrest>
+    <SrBondageRelease>释放{0}</SrBondageRelease>
+    <SrBondageNoPrisoner>没有囚犯</SrBondageNoPrisoner>
+    <SrBondageCantArrest>无法抓捕</SrBondageCantArrest>
+</LanguageData>

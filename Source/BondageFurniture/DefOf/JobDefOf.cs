@@ -17,6 +17,8 @@ namespace RabiSquare.BondageFurniture
     public static class JobDefOf
     {
         [UsedImplicitly] public static readonly JobDef SrJobBondageArrest;
-        [UsedImplicitly] public static readonly JobDef SrJobLayDownBondage;
+        [UsedImplicitly] public static readonly JobDef SrJobBondageRelease;
+        [UsedImplicitly] public static readonly JobDef SrJobBondageLayDown;
+        [UsedImplicitly] public static readonly JobDef SrJobBondageStand;
     }
 }

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThinkTreeDef[defName = "Humanlike"]/thinkRoot/subNodes</xpath>
+        <value>
+            <li Class="ThinkNode_SubtreesByTag">
+                <insertTag>SrBondage</insertTag>
+            </li>
+        </value>
+    </Operation>
+</Patch>

@@ -11,6 +11,10 @@ namespace RabiSquare.BondageFurniture
 {
     public static class MsicDef
     {
-        public static readonly string LogTag = "[RabiSquare.BondageFurniture]";
+        public const string LogTag = "[RabiSquare.BondageFurniture]";
+        public const string SrBondageArrest = "SrBondageArrest";
+        public const string SrBondageRelease = "SrBondageRelease";
+        public const string SrBondageNoPrisoner = "SrBondageNoPrisoner";
+        public const string SrBondageCantArrest = "SrBondageCantArrest";
     }
 }

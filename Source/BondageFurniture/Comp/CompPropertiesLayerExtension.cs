@@ -13,7 +13,6 @@ using Verse;
 
 namespace RabiSquare.BondageFurniture
 {
-    [UsedImplicitly]
     public class CompPropertiesLayerExtension : CompProperties
     {
         public CompPropertiesLayerExtension()

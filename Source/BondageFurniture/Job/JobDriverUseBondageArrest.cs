@@ -50,7 +50,7 @@ namespace RabiSquare.BondageFurniture
             yield return Toils_Reserve.Release(TargetIndex.A);
             yield return new Toil
             {
-                initAction = delegate()
+                initAction = delegate
                 {
                     //fail
                     if (Thing.Destroyed)
@@ -60,9 +60,22 @@ namespace RabiSquare.BondageFurniture
                     }
 
                     pawn.carryTracker.TryDropCarriedThing(Thing.Position, ThingPlaceMode.Direct,
-                        out _); //把囚犯扔下去
+                        out _); //drop prisoner
+                    var compBondage = Thing.TryGetComp<CompBondage>();
+                    if (compBondage == null)
+                    {
+                        return;
+                    }
+
+                    pawn.Position = compBondage.BondagePos;
+                    pawn.Notify_Teleported(false);
+                    pawn.stances.CancelBusyStanceHard();
                     //TuckedIntoBed
-                    prisoner.NotifyTuckedIntoBondageFurniture(Thing);
+                    pawn.jobs.StartJob(
+                        compBondage.Props.bondageType == BondageType.LayDown
+                            ? JobMaker.MakeJob(JobDefOf.SrJobBondageLayDown, Thing)
+                            : JobMaker.MakeJob(RimWorld.JobDefOf.Wait),
+                        JobCondition.InterruptForced);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };

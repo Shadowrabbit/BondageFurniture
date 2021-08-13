@@ -1,24 +1,17 @@
 ﻿// ******************************************************************
-//       /\ /|       @file       ThinkNodeConditionalBound.cs
+//       /\ /|       @file       BondageType.cs
 //       \ V/        @brief      
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
-//      /  \\        @Modified   2021-08-11 07:55:41
+//      /  \\        @Modified   2021-08-13 04:14:34
 //    *(__\_\        @Copyright  Copyright (c) 2021, Shadowrabbit
 // ******************************************************************
 
-using JetBrains.Annotations;
-using Verse;
-using Verse.AI;
-
 namespace RabiSquare.BondageFurniture
 {
-    [UsedImplicitly]
-    public class ThinkNodeConditionalBound : ThinkNode_Conditional
+    public enum BondageType : byte
     {
-        protected override bool Satisfied(Pawn pawn)
-        {
-            return pawn.IsBound();
-        }
+        Stand,
+        LayDown,
     }
 }
