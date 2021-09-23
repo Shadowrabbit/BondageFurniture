@@ -1,6 +1,6 @@
 ﻿// ******************************************************************
 //       /\ /|       @file       JobDriverBondageStand.cs
-//       \ V/        @brief      
+//       \ V/        @brief      工作驱动 站立被束缚状态
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
 //      /  \\        @Modified   2021-08-13 05:08:17

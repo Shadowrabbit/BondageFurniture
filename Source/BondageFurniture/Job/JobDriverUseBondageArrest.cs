@@ -1,6 +1,6 @@
 ﻿// ******************************************************************
 //       /\ /|       @file       JobDriverUseBondageArrest.cs
-//       \ V/        @brief      
+//       \ V/        @brief      工作驱动 使用束缚物体抓捕
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
 //      /  \\        @Modified   2021-08-11 11:50:56
@@ -60,22 +60,25 @@ namespace RabiSquare.BondageFurniture
                     }
 
                     pawn.carryTracker.TryDropCarriedThing(Thing.Position, ThingPlaceMode.Direct,
-                        out _); //drop prisoner
+                        out _);
+                    //drop prisoner
                     var compBondage = Thing.TryGetComp<CompBondage>();
                     if (compBondage == null)
                     {
                         return;
                     }
 
-                    pawn.Position = compBondage.BondagePos;
-                    pawn.Notify_Teleported(false);
-                    pawn.stances.CancelBusyStanceHard();
+                    prisoner.Position = compBondage.BondagePos;
+                    prisoner.Notify_Teleported(false);
+                    prisoner.stances.CancelBusyStanceHard();
                     //TuckedIntoBed
-                    pawn.jobs.StartJob(
+                    prisoner.jobs.StartJob(
                         compBondage.Props.bondageType == BondageType.LayDown
                             ? JobMaker.MakeJob(JobDefOf.SrJobBondageLayDown, Thing)
                             : JobMaker.MakeJob(RimWorld.JobDefOf.Wait),
                         JobCondition.InterruptForced);
+                    //通知网格更新
+                    Map.mapDrawer.MapMeshDirty(prisoner.Position, MapMeshFlag.Buildings);
                 },
                 defaultCompleteMode = ToilCompleteMode.Instant
             };

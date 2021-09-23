@@ -1,6 +1,6 @@
 ﻿// ******************************************************************
 //       /\ /|       @file       ToilsBondage.cs
-//       \ V/        @brief      
+//       \ V/        @brief      工作流程 束缚相关
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
 //      /  \\        @Modified   2021-08-12 01:05:24
@@ -16,7 +16,15 @@ namespace RabiSquare.BondageFurniture
 {
     public static class ToilsBondage
     {
-        public static Toil GetToilLayDownBondage(TargetIndex bedOrRestSpotIndex, bool lookForOtherJobs,
+        /// <summary>
+        /// 获取躺下束缚状态的工作流程
+        /// </summary>
+        /// <param name="bedOrRestSpotIndex"></param>
+        /// <param name="lookForOtherJobs"></param>
+        /// <param name="canSleep"></param>
+        /// <param name="gainRestAndHealth"></param>
+        /// <returns></returns>
+        public static Toil GetToilLayDownBondage(TargetIndex bedOrRestSpotIndex, bool lookForOtherJobs = false,
             bool canSleep = true, bool gainRestAndHealth = true)
         {
             var layDownBondage = new Toil();

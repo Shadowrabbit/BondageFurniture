@@ -14,10 +14,12 @@
         <defName>SrJobBondageLayDown</defName>
         <driverClass>RabiSquare.BondageFurniture.JobDriverBondageLayDown</driverClass>
         <reportString>bound</reportString>
+        <checkOverrideOnDamage>Never</checkOverrideOnDamage>
     </JobDef>
     <JobDef>
         <defName>SrJobBondageStand</defName>
         <driverClass>RabiSquare.BondageFurniture.JobDriverBondageStand</driverClass>
         <reportString>bound</reportString>
+        <checkOverrideOnDamage>Never</checkOverrideOnDamage>
     </JobDef>
 </Defs>

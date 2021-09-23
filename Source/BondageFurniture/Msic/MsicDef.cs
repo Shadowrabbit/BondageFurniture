@@ -1,6 +1,6 @@
 ﻿// ******************************************************************
 //       /\ /|       @file       MsicDef.cs
-//       \ V/        @brief      
+//       \ V/        @brief      其他定义
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
 //      /  \\        @Modified   2021-08-11 11:37:25

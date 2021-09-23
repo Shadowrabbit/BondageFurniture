@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+    <SrJobBondageArrest.reportString>arrest</SrJobBondageArrest.reportString>
+    <SrJobBondageRelease.reportString>release</SrJobBondageRelease.reportString>
+    <SrJobBondageLayDown.reportString>bound</SrJobBondageLayDown.reportString>
+    <SrJobBondageStand.reportString>bound</SrJobBondageStand.reportString>
+</LanguageData>

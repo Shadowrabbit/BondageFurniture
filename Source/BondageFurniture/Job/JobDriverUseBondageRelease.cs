@@ -1,6 +1,6 @@
 ﻿// ******************************************************************
 //       /\ /|       @file       JobDriverUseBondageRelease.cs
-//       \ V/        @brief      
+//       \ V/        @brief      工作驱动 使用束缚物体释放
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
 //      /  \\        @Modified   2021-08-11 11:56:44

@@ -1,6 +1,6 @@
 ﻿// ******************************************************************
 //       /\ /|       @file       JobDefOf.cs
-//       \ V/        @brief      
+//       \ V/        @brief      工作相关定义反射
 //       | "")       @author     Shadowrabbit, yingtu0401@gmail.com
 //       /  |                    
 //      /  \\        @Modified   2021-08-11 10:11:15

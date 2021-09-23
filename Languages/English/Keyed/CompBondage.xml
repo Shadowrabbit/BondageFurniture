@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <SrBondageArrest>arrest {0}</SrBondageArrest>
+    <SrBondageRelease>release {0}</SrBondageRelease>
+    <SrBondageNoPrisoner>no prisoner</SrBondageNoPrisoner>
+    <SrBondageCantArrest>can't arrest</SrBondageCantArrest>
+</LanguageData>
