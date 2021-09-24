@@ -32,10 +32,6 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="0Harmony, Version=2.1.0.0, Culture=neutral, PublicKeyToken=null">
-          <HintPath>Lib\0Harmony.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
         <Reference Include="Assembly-CSharp, Version=1.3.7885.20027, Culture=neutral, PublicKeyToken=null">
           <HintPath>Lib\Assembly-CSharp.dll</HintPath>
           <Private>False</Private>
