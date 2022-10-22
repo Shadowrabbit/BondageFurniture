@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- 束缚床 -->
+    <ThingDef ParentName="BuildingBase">
+        <defName>SrBondageBed</defName>
+        <label>bondage bed</label>
+        <description>Bound prisoners on it to make sure that they can't make trouble for you.</description>
+        <altitudeLayer>Building</altitudeLayer>
+        <graphicData>
+            <texPath>Things/Building/Furniture/BondageBed</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(4,4)</drawSize>
+            <color>(62,164,249)</color>
+            <damageData>
+                <rect>(0,0.05,1,1.95)</rect>
+            </damageData>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>140</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Beauty>1</Beauty>
+            <WorkToBuild>800</WorkToBuild>
+            <Mass>30</Mass>
+            <BedRestEffectiveness>1</BedRestEffectiveness>
+            <Comfort>0.75</Comfort>
+            <ImmunityGainSpeedFactor>1.07</ImmunityGainSpeedFactor>
+            <SurgerySuccessChanceFactor>1</SurgerySuccessChanceFactor>
+        </statBases>
+        <scatterableOnMapGen>false</scatterableOnMapGen>
+        <size>(1,2)</size>
+        <designationCategory>Furniture</designationCategory>
+        <passability>PassThroughOnly</passability>
+        <drawGUIOverlay>true</drawGUIOverlay>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <canOverlapZones>false</canOverlapZones>
+        <building>
+            <bed_showSleeperBody>true</bed_showSleeperBody>
+            <bed_healPerDay>4</bed_healPerDay>
+        </building>
+        <designationHotKey>Misc2</designationHotKey>
+        <!--1.3新特性:绘制类型如果为MapMeshOnly,则draw函数不会被调用-->
+        <drawerType>RealtimeOnly</drawerType>
+        <comps>
+            <li Class="RabiSquare.BondageFurniture.CompPropertiesBondage">
+                <compClass>RabiSquare.BondageFurniture.CompBondage</compClass>
+                <bondageType>LayDown</bondageType>
+                <forcedBodyOffset>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0.5</z>
+                </forcedBodyOffset>
+            </li>
+            <li Class="RabiSquare.BondageFurniture.CompPropertiesLayerExtension">
+                <compClass>RabiSquare.BondageFurniture.CompLayerExtension</compClass>
+                <graphicLayers>
+                    <li>
+                        <graphicData>
+                            <texPath>Things/Building/Furniture/BondageBedLayerA</texPath>
+                            <graphicClass>Graphic_Multi</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <drawSize>(4,4)</drawSize>
+                        </graphicData>
+                        <altitudeLayer>PawnUnused</altitudeLayer>
+                    </li>
+                </graphicLayers>
+            </li>
+        </comps>
+        <!-- 混合材料 -->
+        <stuffCategories>
+            <li>Metallic</li>
+        </stuffCategories>
+        <costStuffCount>45</costStuffCount>
+        <!-- 额外固定消耗 -->
+        <costList>
+            <Cloth>20</Cloth>
+        </costList>
+        <fillPercent>0.4</fillPercent>
+        <pathCost>60</pathCost>
+        <staticSunShadowHeight>0.17</staticSunShadowHeight>
+        <castEdgeShadows>True</castEdgeShadows>
+        <techLevel>Medieval</techLevel>
+        <uiIconScale>0.90</uiIconScale>
+    </ThingDef>
+</Defs>

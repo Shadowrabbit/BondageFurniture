@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <JobDef>
+        <defName>SrJobBondageArrest</defName>
+        <driverClass>RabiSquare.BondageFurniture.JobDriverUseBondageArrest</driverClass>
+        <reportString>arrest</reportString>
+    </JobDef>
+    <JobDef>
+        <defName>SrJobBondageRelease</defName>
+        <driverClass>RabiSquare.BondageFurniture.JobDriverUseBondageRelease</driverClass>
+        <reportString>release</reportString>
+    </JobDef>
+    <JobDef>
+        <defName>SrJobBondageLayDown</defName>
+        <driverClass>RabiSquare.BondageFurniture.JobDriverBondageLayDown</driverClass>
+        <reportString>bound</reportString>
+        <checkOverrideOnDamage>Never</checkOverrideOnDamage>
+    </JobDef>
+    <JobDef>
+        <defName>SrJobBondageStand</defName>
+        <driverClass>RabiSquare.BondageFurniture.JobDriverBondageStand</driverClass>
+        <reportString>bound</reportString>
+        <checkOverrideOnDamage>Never</checkOverrideOnDamage>
+    </JobDef>
+</Defs>
